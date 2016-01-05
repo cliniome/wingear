@@ -174,61 +174,7 @@
 
         </Component>
 
-        <!--
-        <Component Location="local" Guid="dc0896ad-be34-4bb8-a293-35f8d3f0cd72">
-          <!- Files ->
-          <File Id="MultiOneTimePasswordResyncCredentialProvider"
-                Name="$(var.MultiOneTimePasswordResyncCredentialProvider.TargetFileName)"
-                Source="$(var.MultiOneTimePasswordResyncCredentialProvider.TargetPath)"
-                KeyPath="yes" />
-
-          <RemoveFile Id="RemoveMultiOneTimePasswordResyncCredentialProviderFiles" Name="$(var.MultiOneTimePasswordResyncCredentialProvider.TargetFileName)" On="uninstall"/>
-          <!- END Files ->
-
-          <!- Registry ->
-          <RegistryKey Root='HKCR' Key='CLSID\{86481B7E-8093-481B-A54E-8967EA82412B}' ForceCreateOnInstall='yes'>
-            <RegistryValue Type='string' Value='MultiOneTimePasswordResyncCredentialProvider' />
-            <RegistryKey Key='InprocServer32'>
-              <RegistryValue Type='string' Value='MultiOneTimePasswordResyncCredentialProvider.dll' />
-              <RegistryValue Name='ThreadingModel' Type='string' Value='Apartment' />
-            </RegistryKey>
-          </RegistryKey>
-
-          <RegistryValue Root='HKLM' Key='SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86481B7E-8093-481B-A54E-8967EA82412B}' Type='string' Value='MultiOneTimePasswordResyncCredentialProvider' />
-
-          <RemoveRegistryKey Root='HKLM' Key='SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86481B7E-8093-481B-A54E-8967EA82412B}' Action='removeOnUninstall'/>
-
-          <!- Configuration values (from dialogs/registry/unattended) ->
-          <!- END Configuration values ->
-          <!- END Registry ->
-
-        </Component>
-        -->
-
-        <!--
-        <Component Location="local" Guid="f2222c38-1896-4840-b2b2-3db74f535ceb">
-          <!- Files ->
-          <File Id="MultiOneTimePasswordCallExternalService"
-                Name="$(var.MultiOneTimePasswordCallExternalService.TargetFileName)"
-                Source="$(var.MultiOneTimePasswordCallExternalService.TargetPath)"
-                KeyPath="yes" />
-
-          <RemoveFile Id="RemoveMultiOneTimePasswordCallExternalService" Name="$(var.MultiOneTimePasswordCallExternalService.TargetFileName)" On="uninstall"/>
-          <!- END Files ->
-
-          <!- Registry ->
-
-          <!- Configuration values (from dialogs/registry/unattended) ->
-          <RegistryKey Root='HKLM' Key='SOFTWARE\$(var.Manufacturer)\$(var.SimpleProductName)' ForceCreateOnInstall='yes'>
-            <RegistryValue Name='path'             Type='string'  Value='[PATH]'            />
-            <RegistryValue Name='timeout'          Type='integer' Value='[TIMEOUT]'         />
-            <RegistryValue Name='login_text'       Type='string'  Value='[LOGIN_TEXT]'  />
-          </RegistryKey>
-          <!- END Configuration values ->
-          <!- END Registry ->
-
-        </Component>
-        -->
+        
         <!-- END Core components -->
 
         <!-- ProviderFilter component -->

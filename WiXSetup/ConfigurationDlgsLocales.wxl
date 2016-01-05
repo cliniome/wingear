@@ -21,15 +21,16 @@
 <WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
   <!-- Configuration -->
   <String Id="PathToMultiOTPInfo">
-A path to a directory containing multiotp.exe
-Just use the directory path EXCLUDING multiotp.exe!
 
-Example: C:\multiotp\
+A Path specifying the full URL of Linq2FA backend System - Reachable over either the LAN Network or the internet.
+Please specify the first restful context ending with "/" only.
+
+Example: http://www.linq2fa.com.sa:8080/rest/
   </String>
   <String Id="LoginTextInfo">
 This is the label to be displayed in the Windows logon tile.
 
 
-Note: Leave it empty to keep the default label text ("MultiOTP Logon").
+Note: Leave it empty to keep the default label text.
   </String>
 </WixLocalization>

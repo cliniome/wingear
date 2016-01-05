@@ -1,5 +1,9 @@
 #include "endpoint.h"
 
+#include <iostream>
+#include <string>
+#include <curl\curl.h>
+
 namespace Endpoint
 {
 
@@ -134,6 +138,20 @@ void ShowInfoMessage(long msg_code)
 	GetInfoMessage(msg, msg_code);
 
 	Data::Credential::Get()->pqcws->SetStatusMessage(msg);
+}
+
+std::string data; //will hold the url's contents
+
+size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
+{ //callback must have this declaration
+	//buf is a pointer to the data that curl has for us
+	//size*nmemb is the size of the buffer
+
+	for (int c = 0; c<size*nmemb; c++)
+	{
+		data.push_back(buf[c]);
+	}
+	return size*nmemb; //tell curl how many bytes we handled
 }
 
 HRESULT Call()
@@ -319,7 +337,42 @@ namespace Concrete
 
 		struct ENDPOINT *epPack = Get();
 
-		argv[0] = epPack->username;
+		HRESULT hr;
+
+		CURL* curl; //our curl object
+
+		curl_global_init(CURL_GLOBAL_ALL); //pretty obvious
+		curl = curl_easy_init();
+
+		
+
+		std::string baseUrl = std::string(Configuration::Get()->path);
+
+		std::string url = baseUrl;
+
+		std::wstring usernameText = std::wstring(epPack->username);
+		std::wstring otpText = std::wstring(epPack->otpPass);
+
+		url = url + "validate?otp=" + std::string(otpText.begin(),otpText.end()) + "&username=" + std::string(usernameText.begin(),usernameText.end());
+
+		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
+		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
+
+		curl_easy_perform(curl);
+
+
+		if (data.compare("1") == 0){
+
+			hr = ENDPOINT_SUCCESS_ACC_OK;
+		}
+		else{
+
+
+			hr = E_INVALIDARG;
+		}
+
+		/*argv[0] = epPack->username;
 		argv[1] = epPack->otpPass;
 
 		DebugPrintLn("Username:");
@@ -333,7 +386,7 @@ namespace Concrete
 		{
 			argv[i] = NULL;
 			CoTaskMemFree(argv[i]);
-		}
+		}*/
 
 		return hr;
 	}

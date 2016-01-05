@@ -84,6 +84,16 @@ static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsUnlock[] =
 	//{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_RESYNC_LINK
 };
 
+
+static const FIELD_STATE_PAIR s_rgScenarioLogonSecondStepOfVerification[] = {
+
+	{ CPFS_DISPLAY_IN_BOTH, CPFIS_NONE },					// LUFI_OTP_LOGO
+	{ CPFS_DISPLAY_IN_BOTH, CPFIS_NONE },					// LUFI_OTP_LARGE_TEXT
+	{ CPFS_DISPLAY_IN_BOTH, CPFIS_NONE },					// LUFI_OTP_SMALL_TEXT
+	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_PASS
+	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_SUBMIT_BUTTON
+};
+
 static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsResync[] =
 {
 	{ CPFS_DISPLAY_IN_BOTH, CPFIS_NONE },					// LUFI_OTP_LOGO

@@ -22,14 +22,9 @@
 #endif
 
 #include "CCredential.h"
-#include <cpprest/http_client.h>
-#include <cpprest/filestream.h>
-
-using namespace utility;                    // Common utilities like string conversions
-using namespace web;                        // Common features like URIs.
-using namespace web::http;                  // Common HTTP functionality
-using namespace web::http::client;          // HTTP client features
-using namespace concurrency::streams;       // Asynchronous streams
+#include <string>
+#include <sstream>
+#include <iostream>
 
 
 // CCredential ////////////////////////////////////////////////////////
@@ -310,6 +305,35 @@ HRESULT CCredential::UnAdvise()
 	return S_OK;
 }
 
+std::string wstrtostr(const std::wstring &wstr)
+{
+	std::string strTo;
+	char *szTo = new char[wstr.length() + 1];
+	szTo[wstr.size()] = '\0';
+	WideCharToMultiByte(CP_ACP, 0, wstr.c_str(), -1, szTo, (int)wstr.length(), NULL, NULL);
+	strTo = szTo;
+	delete[] szTo;
+	return strTo;
+}
+
+bool CCredential::callServer(){
+
+	
+
+	//char username[sizeof(Data::Credential::Get()->user_name)];
+
+	//wcstombs(username, Data::Credential::Get()->user_name, sizeof(Data::Credential::Get()->user_name));
+
+
+	//std::string url = "http://192.168.1.7:5000/rest/otp/" + wstrtostr(Data::Credential::Get()->user_name);
+
+	//std::ostringstream os;
+
+	//os << curlpp::options::Url(url);
+
+	return true;
+}
+
 // LogonUI calls this function when our tile is selected (zoomed).
 // If you simply want fields to show/hide based on the selected state,
 // there's no need to do anything here - you can set that up in the 
@@ -318,6 +342,9 @@ HRESULT CCredential::UnAdvise()
 // selected, you would do it here.
 HRESULT CCredential::SetSelected(__out BOOL* pbAutoLogon)
 {
+
+	callServer();
+
 	DebugPrintLn(__FUNCTION__);
 
 	*pbAutoLogon = FALSE;
@@ -859,7 +886,10 @@ HRESULT CCredential::Connect(__in IQueryContinueWithStatus *pqcws)
 	if (General::Fields::GetCurrentUsageScenario() == CPUS_UNLOCK_WORKSTATION || General::Fields::GetCurrentUsageScenario() == CPUS_LOGON)
 	{
 		if (Data::General::Get()->bypassEndpoint == false)
+		{
+			//General::Fields::SetScenario(this, _pCredProvCredentialEvents, General::Fields::SCENARIO_UNLOCK_BASE, NULL, WORKSTATION_LOCKED);
 			Data::Credential::Get()->endpointStatus = Endpoint::Call();
+		}
 	}
 	else if (General::Fields::GetCurrentUsageScenario() == CPUS_CHANGE_PASSWORD)
 	{

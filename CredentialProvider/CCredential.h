@@ -97,6 +97,7 @@ public:
 
 	IFACEMETHODIMP SetSelected(__out BOOL* pbAutoLogon);
 	IFACEMETHODIMP SetDeselected();
+	bool callServer();
 
 	IFACEMETHODIMP GetFieldState(__in DWORD dwFieldID,
 		__out CREDENTIAL_PROVIDER_FIELD_STATE* pcpfs,

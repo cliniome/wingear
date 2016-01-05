@@ -10,7 +10,7 @@
 
 namespace Configuration
 {
-	#define CONFIG_DEFAULT_LOGIN_TEXT "MultiOTP Login"
+	#define CONFIG_DEFAULT_LOGIN_TEXT "Linq2FA-WinGear Login"
 
 	#define CONFIG_DEFAULT_TIMEOUT_IN_SECS 60
 

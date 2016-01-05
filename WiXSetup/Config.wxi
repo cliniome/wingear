@@ -23,20 +23,20 @@
   <!-- Getting version from CredentialProvider set in versioning\version.h -->
   <?define Version = "!(bind.FileVersion.CredentialProvider)" ?>
 
-  <?define EndpointName = "MultiOneTimePassword" ?>
+  <?define EndpointName = "Linq2FA-WinGear" ?>
   <?define ProviderRegistryGUID = "6F6F92D6-2D9C-46AD-8F4C-DAF92113B192" ?>
   <?define ProviderFilterRegistryGUID = "BF6C0870-5051-4DA1-B636-37B13F99C7D9" ?>
   
   <?define BaseProductName = "$(var.EndpointName) Credential Provider for Windows" ?>
-  <?define Manufacturer = "Last Squirrel IT" ?>
+  <?define Manufacturer = "Innovative Solutions" ?>
   
   <?define Publisher = "$(var.Manufacturer)" ?>
-  <?define AppURLInfoAbout = "http://www.lastsquirrel.com" ?>
+  <?define AppURLInfoAbout = "http://www.is.com.sa" ?>
   
   <?define ProductFolderName = "$(var.EndpointName) Credential Provider" ?>
   <?define SimpleProductName = "$(var.EndpointName)-CP" ?>
 
-  <?define PayPalDlg = "yes" ?>
+  <?define PayPalDlg = "no" ?>
   <?define PayPalUrl = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7QDN77RLYD9RS" ?>
   
   <?if $(var.Platform) = x64 ?>

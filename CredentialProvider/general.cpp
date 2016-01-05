@@ -218,6 +218,10 @@ namespace General
 				hr = SetFieldStatePairBatch(self, pCPCE, s_rgScenarioLogonUnlockFieldStatePairsResync);
 				break;
 
+			case SCENARIO_VERIFICATION_STEP:
+				hr = SetFieldStatePairBatch(self, pCPCE, s_rgScenarioLogonSecondStepOfVerification);
+				break;
+
 			case SCENARIO_NO_CHANGE:
 			default:
 				break;
