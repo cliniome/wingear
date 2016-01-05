@@ -34,8 +34,8 @@ enum LOGON_UNLOCK_FIELD_ID
 	LUFI_OTP_PASS = 5,
 	LUFI_OTP_PASS_2 = 6,
 	LUFI_OTP_SUBMIT_BUTTON = 7,
-	LUFI_OTP_RESYNC_LINK = 8,
-	LUFI_NUM_FIELDS = 9,
+	//LUFI_OTP_RESYNC_LINK = 8,
+	LUFI_NUM_FIELDS = 8,
 };
 
 static const FIELD_INITIALIZOR s_rgScenarioLogonUnlockFieldInitializors[] =
@@ -48,7 +48,7 @@ static const FIELD_INITIALIZOR s_rgScenarioLogonUnlockFieldInitializors[] =
 	{ FIT_VALUE, L"" },
 	{ FIT_VALUE, L"" },
 	{ FIT_VALUE, L"Submit" },
-	{ FIT_VALUE, L"Resynchronize OTPs..." },
+	//{ FIT_VALUE, L"Resynchronize OTPs..." },
 };
 
 // These two arrays are seperate because a credential provider might
@@ -68,7 +68,7 @@ static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairs[] =
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_PASS
 	{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_PASS_2
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_SUBMIT_BUTTON
-	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_RESYNC_LINK
+	//{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_RESYNC_LINK
 };
 
 static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsUnlock[] =
@@ -81,7 +81,7 @@ static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsUnlock[] =
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_PASS
 	{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_PASS_2
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_SUBMIT_BUTTON
-	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_RESYNC_LINK
+	//{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_RESYNC_LINK
 };
 
 static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsResync[] =
@@ -94,7 +94,7 @@ static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsResync[] =
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_PASS
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_PASS_2
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_NONE },			// LUFI_OTP_SUBMIT_BUTTON
-	{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_RESYNC_LINK
+	//{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_RESYNC_LINK
 };
 
 static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsSecondStep[] =
@@ -107,7 +107,7 @@ static const FIELD_STATE_PAIR s_rgScenarioLogonUnlockFieldStatePairsSecondStep[]
 	{ CPFS_DISPLAY_IN_SELECTED_TILE, CPFIS_FOCUSED },		// LUFI_OTP_PASS
 	{ CPFS_HIDDEN, CPFIS_FOCUSED },							// LUFI_OTP_PASS_2
 	{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_SUBMIT_BUTTON
-	{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_RESYNC_LINK
+	//{ CPFS_HIDDEN, CPFIS_NONE },							// LUFI_OTP_RESYNC_LINK
 };
 
 // Field descriptors for unlock and logon.
@@ -124,7 +124,7 @@ static const CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR s_rgScenarioLogonUnlockCredPro
 	{ LUFI_OTP_PASS, CPFT_PASSWORD_TEXT, L"One-Time Password" },
 	{ LUFI_OTP_PASS_2, CPFT_PASSWORD_TEXT, L"Next One-Time Password" },
 	{ LUFI_OTP_SUBMIT_BUTTON, CPFT_SUBMIT_BUTTON, L"Submit" },
-	{ LUFI_OTP_RESYNC_LINK, CPFT_COMMAND_LINK, L"Resynchronize OTPs" },
+	//{ LUFI_OTP_RESYNC_LINK, CPFT_COMMAND_LINK, L"Resynchronize OTPs" },
 };
 
 static PWSTR s_rgScenarioLogonUnlockComboBoxModeStrings[] =

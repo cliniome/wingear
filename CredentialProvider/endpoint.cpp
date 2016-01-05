@@ -116,7 +116,7 @@ void GetInfoMessage(wchar_t(&msg)[ENDPOINT_INFO_MSG_SIZE], long msg_code)
 		wcscpy_s(msg, ARRAYSIZE(msg), L"Please wait...");
 		break;
 	case ENDPOINT_INFO_CALLING_ENDPOINT:
-		wcscpy_s(msg, ARRAYSIZE(msg), L"Calling endpoint...");
+		wcscpy_s(msg, ARRAYSIZE(msg), L"Calling Linq2FA-WinGear...");
 		break;
 	default:
 		break;
